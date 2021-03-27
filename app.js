@@ -9,7 +9,7 @@
 // Event handling, user interaction is what starts the code execution.
 
 var taskInput=document.getElementById("new-task");//Add a new task.
-var addButton=document.getElementsByTagName("button")[0];//first button
+var addButton=document.getElementsByClassName("btn")[0];//first button
 var incompleteTaskHolder=document.getElementById("incompleted");//ul of #incompleteTasks
 var completedTasksHolder=document.getElementById("completed");//completed-tasks
 
@@ -18,6 +18,7 @@ var completedTasksHolder=document.getElementById("completed");//completed-tasks
 var createNewTaskElement=function(taskString){
 
   var listItem=document.createElement("li");
+  listItem.classList.add('list-item');
 
   //input (checkbox)
   var checkBox=document.createElement("input");//checkbx
@@ -27,10 +28,13 @@ var createNewTaskElement=function(taskString){
   var editInput=document.createElement("input");//text
   //button.edit
   var editButton=document.createElement("button");//edit button
+  editButton.classList.add('btn')
 
   //button.delete
   var deleteButton=document.createElement("button");//delete button
+  deleteButton.classList.add('btn')
   var deleteButtonImg=document.createElement("img");//delete button image
+  deleteButtonImg.classList.add('image')
 
   label.innerText=taskString;
   label.className='task';
@@ -41,9 +45,9 @@ var createNewTaskElement=function(taskString){
   editInput.className="task";
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className="edit";
+  editButton.classList.add('edit');
 
-  deleteButton.className="delete";
+  deleteButton.classList.add("delete");
   deleteButtonImg.src='./remove.svg';
   deleteButton.appendChild(deleteButtonImg);
 
